@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CSSHelper {
 
@@ -45,4 +48,22 @@ public class CSSHelper {
         }
     }
 
+    public static String[] parseConfig(String color) {
+        //delete css comments
+        color = color.replaceAll("\\/\\*[\\s\\S]*?\\*\\/|([^:]|^)\\/\\/.*$","");
+        String[] lines = color.split(System.getProperty("line.separator"));
+
+        for(int i = 0; i < lines.length; i++) {
+            if(!lines[i].startsWith("@def")) {
+                lines[i] = "";
+            } else {
+                lines[i] = lines[i].replaceAll("@def ","").replaceAll("_", " ");
+            }
+        }
+        List<String> list = new ArrayList<>(Arrays.asList(lines));
+        System.out.println(list);
+        list.removeAll(Arrays.asList("", null));
+        lines = list.toArray(new String[0]);
+        return lines;
+    }
 }

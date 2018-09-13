@@ -1,7 +1,8 @@
-package com.nylon.themecreator;
+package com.nylon.themecreator.helpers;
 
-import android.content.Context;
 import android.util.Log;
+
+import com.nylon.themecreator.activities.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.File;

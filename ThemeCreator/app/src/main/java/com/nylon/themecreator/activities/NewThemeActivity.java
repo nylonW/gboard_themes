@@ -15,6 +15,7 @@ import com.nylon.themecreator.R;
 import org.zeroturnaround.zip.ZipUtil;
 
 import java.io.File;
+import java.util.Arrays;
 
 import static com.nylon.themecreator.activities.MainActivity.TARGET_BASE_PATH;
 
@@ -23,7 +24,7 @@ public class NewThemeActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     String color;
-    String[] colors;
+    String[] colors, hexColors, original;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,15 +36,16 @@ public class NewThemeActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.d("GTheme", color);
-        colors = CSSHelper.parseConfig(color);
-        color = color.replace("@def color_base #fafafa;", "@def color_base #000000;");
-        CSSHelper.saveColors(color);
-        ZipUtil.pack(new File(TARGET_BASE_PATH + "file"), new File(TARGET_BASE_PATH + "temp.zip"));
-        new CommonAsync().execute("TEST22.zip");
+
+
+        original = CSSHelper.parseConfigOriginal(color);
+        hexColors = CSSHelper.parseHexColors(original);
+        colors = CSSHelper.parseConfigFormatted(original);
+
+        //CSSHelper.saveColors(color);
+        //ZipUtil.pack(new File(TARGET_BASE_PATH + "file"), new File(TARGET_BASE_PATH + "temp.zip"));
+        //new CommonAsync().execute("TEST22.zip");
         setupRecyclerView();
-
-
 
     }
 
@@ -52,7 +54,7 @@ public class NewThemeActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new ConfigAdapter(colors);
+        adapter = new ConfigAdapter(colors, original, hexColors, color);
         recyclerView.setAdapter(adapter);
     }
 }

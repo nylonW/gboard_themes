@@ -48,22 +48,40 @@ public class CSSHelper {
         }
     }
 
-    public static String[] parseConfig(String color) {
+    public static String[] parseConfigOriginal(String color) {
         //delete css comments
         color = color.replaceAll("\\/\\*[\\s\\S]*?\\*\\/|([^:]|^)\\/\\/.*$","");
         String[] lines = color.split(System.getProperty("line.separator"));
 
         for(int i = 0; i < lines.length; i++) {
-            if(!lines[i].startsWith("@def")) {
+            if(!lines[i].startsWith("@def") || lines[i].contains("corner_radius")) {
                 lines[i] = "";
-            } else {
-                lines[i] = lines[i].replaceAll("@def ","").replaceAll("_", " ");
             }
         }
         List<String> list = new ArrayList<>(Arrays.asList(lines));
-        System.out.println(list);
         list.removeAll(Arrays.asList("", null));
         lines = list.toArray(new String[0]);
+
         return lines;
+    }
+
+    public static String[] parseHexColors(String[] lines) {
+        String[] temp = new String[lines.length];
+        for(int i = 0; i < lines.length; i++) {
+            Log.d("HEXC", lines[i]);
+            temp[i] = "#" + lines[i].substring(lines[i].indexOf("#") + 1, lines[i].indexOf(";"));
+            temp[i] = temp[i].substring(0,7);
+        }
+
+        return temp;
+    }
+
+    public static String[] parseConfigFormatted(String[] original) {
+        String[] temp = new String[original.length];
+        for(int i = 0; i < original.length; i++) {
+            temp[i] = original[i].replaceAll("@def ", "").replaceAll("_", " ").replaceAll("(?=#)(.*)(?<=;)","");
+        }
+
+        return temp;
     }
 }

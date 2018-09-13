@@ -69,7 +69,8 @@ public class ConfigAdapter extends RecyclerView.Adapter<ConfigAdapter.ConfigView
                     public void OnColorClick(View v, int color) {
                         configViewHolder.imageView.setImageDrawable(new ColorDrawable(color));
                         String hexColor = String.format("#%06X", (0xFFFFFF & color));
-                        colorString = colorString.replaceAll(configs[i], configs[i].replaceAll("(?=#)(.*)(?<=;)",hexColor));
+                        colorString = colorString.replaceAll(configs[i], configs[i].replaceAll("(?=#)(.*)(?=;)", hexColor+"FF"));
+                        configs[i] = configs[i].replaceAll("(?=#)(.*)(?=;)", hexColor+"FF");
                         CSSHelper.saveColors(colorString);
                         ZipUtil.pack(new File(TARGET_BASE_PATH + "file"), new File(TARGET_BASE_PATH + "temp.zip"));
                         new CommonAsync().execute("finalTest.zip");

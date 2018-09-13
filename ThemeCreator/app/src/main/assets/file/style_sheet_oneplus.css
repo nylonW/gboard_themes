@@ -80,6 +80,7 @@
 @def color_sticker_btn_background #E4E4E4FF;
 @def color_sticker_icon #727272FF;
 @def color_sticker_accent_icon #000000FF;
+@def color_gesture #EA0128;
 
 /* Color common */
 .keyboard-body-area,
@@ -355,7 +356,7 @@
     padding_ratio_bottom: 0;
 }
 .track.for-gesture {
-    color: #EA0128
+    color: @color_gesture
 }
 .label.for-popup-item:pressed {
     color: @color_state_popup_label_pressed;

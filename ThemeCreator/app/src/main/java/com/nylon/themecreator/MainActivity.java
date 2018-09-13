@@ -41,15 +41,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                copyFileOrDir("file");
-                //ZipUtil.pack(new File(TARGET_BASE_PATH + "file"), new File(TARGET_BASE_PATH + "temp.zip"));
-                //new CommonAsync().execute("TEST22.zip");
-                Intent i = new Intent(MainActivity.this, NewThemeActivity.class);
-                startActivity(i);
-            }
+        fab.setOnClickListener(view -> {
+            copyFileOrDir("file");
+            //ZipUtil.pack(new File(TARGET_BASE_PATH + "file"), new File(TARGET_BASE_PATH + "temp.zip"));
+            //new CommonAsync().execute("TEST22.zip");
+            Intent i = new Intent(MainActivity.this, NewThemeActivity.class);
+            startActivity(i);
         });
     }
 

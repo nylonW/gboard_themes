@@ -1,10 +1,11 @@
-package com.nylon.themecreator;
+package com.nylon.themecreator.helpers;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.chrisplus.rootmanager.RootManager;
 import com.chrisplus.rootmanager.container.Result;
+import com.nylon.themecreator.activities.MainActivity;
 
 
 public class CommonAsync extends AsyncTask<String, Void, Result> {

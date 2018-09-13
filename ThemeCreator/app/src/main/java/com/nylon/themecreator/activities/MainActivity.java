@@ -1,10 +1,8 @@
-package com.nylon.themecreator;
+package com.nylon.themecreator.activities;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,10 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.chrisplus.rootmanager.RootManager;
-import com.chrisplus.rootmanager.container.Result;
-
-import org.zeroturnaround.zip.ZipUtil;
-import org.zeroturnaround.zip.commons.IOUtils;
+import com.nylon.themecreator.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -41,17 +36,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            copyFileOrDir("file");
-            //ZipUtil.pack(new File(TARGET_BASE_PATH + "file"), new File(TARGET_BASE_PATH + "temp.zip"));
-            //new CommonAsync().execute("TEST22.zip");
-            Intent i = new Intent(MainActivity.this, NewThemeActivity.class);
-            startActivity(i);
-        });
-    }
+        fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    copyFileOrDir("file");
+                    //ZipUtil.pack(new File(TARGET_BASE_PATH + "file"), new File(TARGET_BASE_PATH + "temp.zip"));
+                    //new CommonAsync().execute("TEST22.zip");
+                    Intent i = new Intent(MainActivity.this, NewThemeActivity.class);
+                    startActivity(i);
+                }
+            });
+        }
 
-    private void copyFileOrDir(String path) {
-        AssetManager assetManager = this.getAssets();
+            private void copyFileOrDir(String path) {
+        AssetManager assetManager = getAssets();
         String assets[];
         try {
             Log.i("tag", "copyFileOrDir() " + path);
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void copyFile(String filename) {
-        AssetManager assetManager = this.getAssets();
+        AssetManager assetManager = getAssets();
         InputStream in;
         OutputStream out;
         String newFileName = null;
@@ -132,5 +130,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
 

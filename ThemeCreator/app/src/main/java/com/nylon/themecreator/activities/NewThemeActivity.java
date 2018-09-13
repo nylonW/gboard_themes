@@ -1,15 +1,19 @@
-package com.nylon.themecreator;
+package com.nylon.themecreator.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.nylon.themecreator.helpers.CSSHelper;
+import com.nylon.themecreator.helpers.CommonAsync;
+import com.nylon.themecreator.R;
+
 import org.zeroturnaround.zip.ZipUtil;
 
 import java.io.File;
 
-import static com.nylon.themecreator.MainActivity.TARGET_BASE_PATH;
+import static com.nylon.themecreator.activities.MainActivity.TARGET_BASE_PATH;
 
 public class NewThemeActivity extends AppCompatActivity {
 

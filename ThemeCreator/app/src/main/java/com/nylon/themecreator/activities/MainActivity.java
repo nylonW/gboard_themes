@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 copyFile(path);
             } else {
                 String fullPath =  TARGET_BASE_PATH + path;
-                Log.i("tag", "path="+fullPath);
+                Log.i("tag", "path=" + fullPath);
                 File dir = new File(fullPath);
                 if (!dir.exists() && !path.startsWith("images") && !path.startsWith("sounds") && !path.startsWith("webkit"))
                     if (!dir.mkdirs())

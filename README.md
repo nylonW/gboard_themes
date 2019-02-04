@@ -1,13 +1,13 @@
 # **Gboard Themes**
 ## Description
-Gboard Themes is a Magisk module with themes invented trough modifying the only third party Gboard theme – the one from MIUI.
+Gboard Themes is a Magisk module with themes invented through modifying the only third party Gboard theme – the one from MIUI.
 
 ## How does it work?
 The module modifies two of your system props to map the theme location and adds a folder (*/system/etc/gboard_themes*) with actual themes inside.
 
 ## Included themes
 Ported theme from POCO F1 / MIUI global
-Amoled razer like(red, pink, green), white, fuschia by RKBD
+Amoled razer like (red, pink, green), white, fuschia by RKBD
 Ported theme from Veu theme by Arz Bhatia 
 Windows like theme
 iOS like theme

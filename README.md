@@ -3,7 +3,7 @@
 Gboard Themes is a Magisk module with themes invented trough modifying the only third party Gboard theme – the one from MIUI.
 
 ## How does it work?
-The module modifies two of your system props to map the theme location and adds a folder (__/system/etc/gboard_themes__) with actual themes inside.
+The module modifies two of your system props to map the theme location and adds a folder (*/system/etc/gboard_themes*) with actual themes inside.
 
 ## Included themes
 Ported theme from POCO F1 / MIUI global

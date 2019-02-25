@@ -1,8 +1,8 @@
 [
   {
-    "author": "Google",
-    "url": "https://github.com/GboardThemes/Packs/raw/master/gboard_gradients.zip",
-    "title": "Google Gradient"
+    "author": "RKBDI",
+    "url": "https://github.com/GboardThemes/Packs/blob/master/Rthemes.zip?raw=true",
+    "title": "Rboard"
   },
   {
     "author": "RKBDI",
@@ -11,7 +11,17 @@
   },
   {
     "author": "RKBDI",
-    "url": "https://github.com/GboardThemes/Packs/blob/master/Rthemes.zip?raw=true",
-    "title": "Rthemes"
+    "url": "https://github.com/GboardThemes/Packs/raw/master/flex.zip",
+    "title": "Flex"
+  },
+  {
+    "author": "Google",
+    "url": "https://github.com/GboardThemes/Packs/raw/master/landscapes.zip",
+    "title": "landscapes"
+  },
+    "author": "Google",
+    "url": "https://github.com/GboardThemes/Packs/raw/master/gboard_gradients.zip",
+    "title": "Gradients"
   }
 ]
+
